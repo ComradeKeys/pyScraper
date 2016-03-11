@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from Scraper import Scraper
 import unittest
-import Flask
+import flask
 
 class test(unittest.TestCase):
     def test(self):

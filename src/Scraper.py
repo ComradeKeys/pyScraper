@@ -21,9 +21,8 @@ class Scraper(unittest.TestCase):
         self.dataBase = self.mongoConnection.reddit
         self.threads = self.dataBase.threads
         self.frontPagePosts = self.userAgent.get_front_page(limit = 100)
-        self.assertTrue(self.database == self.mongoConnectoin.reddit)
+        self.assertTrue(self.dataBase == self.mongoConnection.reddit)
 
-if __name__ == "__main__":
     # Inserts the posts gathered in the init into the mongo
     # database
     def getPosts(self):
