@@ -1,0 +1,8 @@
+python3-praw
+python3-bson
+python3-pymongo
+python3-flask
+python3-itsdangerous
+python3-jinja2
+python3-markupsafe
+python3-werkzeug
