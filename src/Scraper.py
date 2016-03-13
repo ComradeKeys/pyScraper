@@ -2,8 +2,8 @@ from pymongo import Connection
 import praw
 import pymongo
 import unittest
-from flask import Flask
-app = Flask(__name__)
+import sys
+import os
 
 """
 Main class for pyReddit
@@ -23,9 +23,12 @@ class Scraper(unittest.TestCase):
         self.frontPagePosts = self.userAgent.get_front_page(limit = 100)
         self.assertTrue(self.dataBase == self.mongoConnection.reddit)
 
+
+
     # Inserts the posts gathered in the init into the mongo
     # database
     def getPosts(self):
+        self.threads.remove({})
         for posts in self.frontPagePosts:
             postContent = {}
             postContent['Title'] = posts.title
@@ -37,9 +40,6 @@ class Scraper(unittest.TestCase):
     # Pulls from the database and puts it into Flask,
     # looks horribly ugly I should probably not use the
     # newline like this. There should be a template for this
-    app.route("/")
-    def postContent(self):
-        content = {}
+    def printContent(self):
         for d in self.threads.find()[:200]:
-            content = content + "\n" + d + "\n"
-        return content
+            print(d)
