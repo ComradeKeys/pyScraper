@@ -10,9 +10,9 @@ app.debug = True
 @app.route("/")
 def index():
     pyReddit = Scraper()
-    _items = pyReddit.dataBase.threads.find()
-    items = [item for item in _items]
-    return render_template('template.html', items=items)
+    postCollectionContainer = pyReddit.dataBase.threads.find()
+    postCollection = [post for post in postCollectionContainer]
+    return render_template('template.html', postCollection = postCollection)
 
 if __name__ == '__main__':
     app.run()
